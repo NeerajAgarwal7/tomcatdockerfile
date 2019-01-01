@@ -1,0 +1,15 @@
+db:
+  image: mysql
+  container_name: Doc-comp-mysql-container
+  environment:
+   MYSQL_ROOT_PASSWORD: welcome123
+
+web:
+  image: e98f3a36047e
+  container_name: Doc-comp-tomcat-container
+  ports:
+          - "8081:8080"
+  volumes:
+          - /opt/tomcat/webapps:/usr/local/tomcat/webapps
+  links:
+          - db
